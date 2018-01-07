@@ -42,7 +42,7 @@ DELETE MUTATION
 mutation {
   deleteClient(id:111){
     entity{
-      ...on NodePage {
+      ...on NodeClient {
         nid
       }
     }
