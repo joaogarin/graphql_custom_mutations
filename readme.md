@@ -1,18 +1,16 @@
-A simple example of a basic page mutation
+# Drupal custom graphql mutation example
 
-
+This code provides example on mutation on a custom content type "Client" for Drupal using [Drupal GraphQL](https://github.com/drupal-graphql/graphql)
 
 ADD MUTATION
 ```$xslt
 mutation {
-  addPage(input:{title:"Hello", body:"World"}){
+  addClient(input:{title:"Client name", email:"hello@world.com"}){
     entity{
-      ...on NodePage {
-        nid
-        title
-        body{
-          value
-        }
+      ...on NodeClient {
+        nid,
+        title,
+        email
       }
     }
   }
@@ -25,57 +23,16 @@ RESULT
 ```$xslt
 {
   "data": {
-    "addPage": {
+    "addClient": {
       "entity": {
         "nid": 111,
-        "title": "Hello",
-        "body": {
-          "value": "World"
-        }
+        "title": "Client name",
+        "email": "hello@world.com"
       }
     }
   }
 }
 ```
-
-
----
-
-
-UPDATE MUTATION
-
-```$xslt
-mutation {
-  updatePage(id:110, input:{title:"Justin"}){
-    entity{
-      ...on NodePage {
-        nid
-        title
-        body{
-          value
-        }
-      }
-    }
-  }
-}
-```
-
-
-RESULT
-```$xslt
-{
-  "data": {
-    "updatePage": {
-      "entity": {
-        "nid": 111,
-        "title": "Justin",
-        "body": null
-      }
-    }
-  }
-}
-```
-
 
 ---
 
@@ -83,14 +40,10 @@ RESULT
 DELETE MUTATION
 ```$xslt
 mutation {
-  deletePage(id:111){
+  deleteClient(id:111){
     entity{
       ...on NodePage {
         nid
-        title
-        body{
-          value
-        }
       }
     }
   }
@@ -104,11 +57,9 @@ RESULT
 ```$xslt
 {
   "data": {
-    "deletePage": {
+    "deleteClient": {
       "entity": {
-        "nid": 111,
-        "title": "Justin",
-        "body": null
+        "nid": 111
       }
     }
   }
