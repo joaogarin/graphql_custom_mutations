@@ -78,3 +78,8 @@ RESULT
   }
 }
 ```
+
+# Credits : 
+
+This module was implemented based on [https://github.com/justinlevi/graphql_custom_mutation](https://github.com/justinlevi/graphql_custom_mutation), thanks [Justin winter](https://github.com/justinlevi)
+
