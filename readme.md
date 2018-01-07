@@ -2,6 +2,19 @@
 
 This code provides example on mutation on a custom content type "Client" for Drupal using [Drupal GraphQL](https://github.com/drupal-graphql/graphql)
 
+For this example I assume a content type called “Client” exists in the Drupal installation (just setup a content type with name Client, machine name should be client). Also this content type should have some fields created :
+
+email
+telephone
+
+## Installation
+
+Put this inside your modules/custom folder and go to extensions in your drupal site and enable the module. Or run : 
+
+```
+drush en graphql_custom_mutations
+```
+
 ADD MUTATION
 ```$xslt
 mutation {
